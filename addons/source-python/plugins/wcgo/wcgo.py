@@ -203,6 +203,8 @@ def _round_end(event):
     for player in wcgo.player.PlayerIter():
         if player.hero is None:
             continue
+        if player.team == 1:
+            continue
         key = 'Round {0}'.format('Win' if player.team == winner else 'Loss')
         xp = cfg.exp_values.get(key, 0)
         player.hero.give_xp(xp)
